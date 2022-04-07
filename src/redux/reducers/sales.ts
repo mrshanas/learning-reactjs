@@ -1,6 +1,6 @@
-export default (state: string[] = [], action: any) => {
+export default (state: any = [], action: any) => {
   switch (action.type) {
-    case "SHOW_PRODUCTS":
+    case "SHOW_SALES":
       return action.payload;
 
     default:
