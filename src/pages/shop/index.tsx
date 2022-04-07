@@ -5,9 +5,9 @@ import Products from "./products";
 import Categories from "./categories";
 import Sales from "./sales";
 import { useDispatch, useSelector } from "react-redux";
-import { showProducts } from "../../redux/actions/products";
-import { showCategories } from "../../redux/actions/categories";
-import { showSales } from "../../redux/actions/sales";
+import { addProduct, showProducts } from "../../redux/actions/products";
+import { showCategories, addCategory } from "../../redux/actions/categories";
+import { showSales, sellProduct } from "../../redux/actions/sales";
 
 const Shop: React.FC = () => {
   const signout = useSignOut();
@@ -25,9 +25,24 @@ const Shop: React.FC = () => {
     dispatch(showSales());
   }, []);
 
+  const addCat = () => dispatch(addCategory({ title: "Milk" }));
+
+  const addPro = () =>
+    dispatch(
+      addProduct({ name: "ASAS", price: "800", quantity: 15, category: 15 })
+    );
+
+  const sellPro = () =>
+    dispatch(
+      sellProduct({ product: 56, amount_paid: "1000", quantity_bought: 1 })
+    );
+
   return (
     <div>
       Welcome to your shop <button onClick={logout}>Sign Out</button>
+      <button onClick={addCat}>Add category</button>
+      <button onClick={addPro}>Add Product</button>
+      <button onClick={sellPro}>Sell product</button>
       <Tabs tabPosition="left">
         <TabPane tab="Dashboard" key="1">
           Dashboard
