@@ -1,3 +1,3 @@
-# Smartshop API Frontend
+# Learning React Js
 
 Built with Typescript
